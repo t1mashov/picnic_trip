@@ -3,6 +3,9 @@
     overflow-y: scroll;
     height: 70vh;
 }
+.content-wrap::-webkit-scrollbar {
+    display: none;
+}
 
 .area-item {
     width: 60vw;
@@ -10,7 +13,8 @@
     border: 1px solid #5c5c5c;
     border-radius: 15px;
     padding: 10px;
-    background-color: #ffffff;
+    box-shadow: 0px 0px 10px #2e2e2e;
+    /* background-color: #ffffff; */
 }
 .area-item-hidden {
     cursor: pointer;
@@ -63,7 +67,9 @@
     background-color: #444444;
     border-radius: 10px;
     cursor: pointer;
+    margin-top: 10px;
     margin-right: 30px;
+    border: none;
 }
 
 

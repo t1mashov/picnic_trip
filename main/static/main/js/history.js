@@ -23,12 +23,7 @@ function load_area(id, comment, opened=false) {
 function get_area_item(id, comment) {
     return `
     <div class="area-item area-item-hidden" id="`+id+`" onclick="show_hide('`+id+`')">
-        <div class="top">
-            <p class="name-txt"><b>`+db[id]['Address']+', '+db[id]['NameWinter']+`</b></p>
-            <div class="trash" onclick="">
-                <img src="`+bin+`">
-            </div>
-        </div>
+        <p class="name-txt"><b>`+db[id]['Address']+', '+db[id]['NameWinter']+`</b></p>
         <div class="details-wrap hidden">
             <div class="desc">
                 <p>Адрес: `+db[id]['Address']+`</p>
@@ -37,6 +32,13 @@ function get_area_item(id, comment) {
                 <p>`+db[id]['SurfaceTypeWinter']+`</p>
                 <p>Телефон: `+db[id]['HelpPhone']+`</p>
                 <p>Сайт: <a href='`+db[id]['WebSite']+`'>`+db[id]['WebSite']+`</a></p>
+                <form method="post">
+                `+csrf+`
+                <input type="hidden" name="del_id" value="`+id+`">
+                <button type="submit" class="trash" onclick="">
+                    <img src="`+bin+`" class="trash-img">
+                </button>
+                </form>
             </div>
             <div class="comment">
             <form method="post">

@@ -104,9 +104,11 @@ def area(rq):
 
     data['connect_db'] = connect_db
     
-    data['reg'] = 'false'
+    data['reg'] = False
+    data['reg_script'] = ''
     if rq.session.has_key('uid'):
         data['reg'] = True
+        data['reg_script'] = '<script>reg = true</script>'
         data['saved_areas'] = saved_areas
     return render(rq, 'main/area.html', data)
 
@@ -133,6 +135,11 @@ def history(rq):
                 where area_id = {rq.POST['id']}
             ''')
             opened = rq.POST['id']
+        if 'del_id' in rq.POST.keys():
+            cursor.execute(f'''
+                delete from history
+                where area_id={rq.POST['del_id']} and user_id={user_id}
+            ''')
 
     if 'save_area' in rq.session.keys():
         print(rq.session['save_area'])

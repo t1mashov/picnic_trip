@@ -65,6 +65,7 @@
     border-radius: 15px;
     margin: 10px;
     order: 1;
+    /* box-shadow: 0px 0px 10px #535353; */
 }
 
 .areas {
@@ -76,8 +77,12 @@
     border-radius: 15px;
     margin: 10px;
     order: 2;
+    /* box-shadow: 0px 0px 10px #535353; */
 
     overflow-y: scroll;
+}
+.areas::-webkit-scrollbar {
+    display: none;
 }
 
 [class*="map"], [class*="inner-panes"] {
