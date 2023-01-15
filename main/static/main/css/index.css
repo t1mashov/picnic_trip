@@ -1,0 +1,86 @@
+
+.content {
+    padding: 0px 50px;
+    font-size: 25px;
+    display: flex;
+    flex-flow: row wrap-reverse;
+    justify-content: space-around;
+}
+
+.left {
+    padding: 10px;
+    max-width: 540px;
+    margin: 5px 10px;
+}
+.left p {
+    margin-bottom: 20px;
+    text-indent: 50px;
+}
+.no-reg-wrap {
+    margin-top: 30px;
+}
+
+.right {
+    width: 30vw;
+    padding: 10px 40px;
+    margin: 5px 10px;
+    margin-top: 20px;
+    background-color: #bbbbbb;
+    border-radius: 15px;
+    max-width: 500px;
+    min-width: 250px;
+    align-self: flex-end;
+}
+
+.right h3 {
+    text-align: center;
+    color: #444444;
+}
+
+.right input {
+    width: 100%;
+} 
+.right table {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.form-btn-wrap {
+    text-align: end;
+}
+.right td {
+    padding-bottom: 5px;
+}
+.td-name {
+    width: 110px;
+}
+
+.form-btn {
+    font-size: 18px;
+    padding: 5px 15px;
+    background-color: #444444;
+    color: #ffffff;
+    text-decoration: none;
+    border: none;
+    margin-top: 10px;
+    border-radius: 10px;
+    transition: background-color .5s ease;
+    cursor: pointer;
+}
+.form-btn:hover {
+    background-color: #6e6e6e;
+}
+
+.error {
+    margin: 20px auto;
+    color: #ff0000;
+    text-align: center;
+}
+
+
+@media (orientation: portrait) {
+    .right {
+        width: auto;
+        height: max-content;
+    }
+}

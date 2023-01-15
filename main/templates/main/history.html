@@ -1,0 +1,33 @@
+
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block nav %}
+    {% include 'main/nav.html' %}
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'main/css/history.css' %}">
+{% endblock %}
+
+{% block main %}
+<script src="{% static 'main/js/history.js' %}"></script>
+<script>
+    csrf = '{% csrf_token %}';
+    bin = "{% static 'main/imgs/trash.svg' %}";
+</script>
+{{connect_db|safe}}
+
+<p class="learn-text">Сохраняйте свои впечатления от поездок в комментариях</p>
+<div class="content-wrap">
+    
+    <div id="content">
+
+    </div>
+</div>
+
+{{load_area|safe}}
+
+{% endblock %}

@@ -1,0 +1,64 @@
+{
+    "global_id":407153298,
+    "ObjectName":"Природно - исторический парк «Битцевский лес»",
+    "NameWinter":"площадка для пикника №8, рядом с улицей Чертановская",
+    "PhotoWinter":[
+        {"Photo":"e83111c7-b4bf-4cf1-99bd-a51ee11317c6"}
+    ],
+    "AdmArea":"Южный административный округ",
+    "District":"район Чертаново Южное",
+    "Address":"Новоясеневский тупик, дом 1, строение 2",
+    "Email":"mospriroda@eco.mos.ru",
+    "WebSite":"www.mospriroda.ru",
+    "HelpPhone":"(499) 739-27-05",
+    "HelpPhoneExtension":"",
+    "WorkingHoursWinter":[
+        {"DayOfWeek":"понедельник",
+        "Hours":"08:00-21:00"},
+
+        {"DayOfWeek":"вторник",
+        "Hours":"08:00-21:00"},
+
+        {"DayOfWeek":"среда",
+        "Hours":"08:00-21:00"},
+
+        {"DayOfWeek":"четверг",
+        "Hours":"08:00-21:00"},
+        
+        {"DayOfWeek":"пятница",
+        "Hours":"08:00-21:00"},
+        
+        {"DayOfWeek":"суббота",
+        "Hours":"08:00-21:00"},
+        
+        {"DayOfWeek":"воскресенье",
+        "Hours":"08:00-21:00"}
+    ],
+    "ClarificationOfWorkingHoursWinter":"",
+    "HasEquipmentRental":"нет",
+    "EquipmentRentalComments":"",
+    "HasTechService":"нет",
+    "TechServiceComments":"",
+    "HasDressingRoom":"нет",
+    "HasEatery":"нет",
+    "HasToilet":"нет",
+    "HasWifi":"нет",
+    "HasCashMachine":"нет",
+    "HasFirstAidPost":"нет",
+    "HasMusic":"нет",
+    "UsagePeriodWinter":"01.09-31.08",
+    "DimensionsWinter":[
+        {"Square":40,
+        "Length":8,
+        "Width":5}
+    ],
+    "Lighting":"без дополнительного освещения",
+    "SurfaceTypeWinter":"грунтовое покрытие",
+    "Seats":0,
+    "Paid":"бесплатно",
+    "PaidComments":"",
+    "ServicesWinter":"общая физическая подготовка",
+    "geoData":{
+        "coordinates":[37.5858070908256,55.592850559465],
+        "type":"Point"}
+}

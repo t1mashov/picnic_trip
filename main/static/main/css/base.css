@@ -1,0 +1,75 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    /*
+    чОткие шрифты:
+    Bahnschrift light
+    -Canada
+    Century Gothic +++
+    Gabriola --
+    */
+    font-family: 'Century Gothic';
+}
+
+body {
+    background: url('../imgs/bg1.png');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.app-name {
+    background-color: #85e08b;
+    color: #000000;
+    text-align: center;
+    padding: 1vw;
+}
+
+main {
+    padding: 1vw;
+}
+
+.green-btn {
+    font-size: 25px;
+    padding: 5px 15px;
+    background-color: #0b8d2e;
+    color: #ffffff;
+    text-decoration: none;
+    border: none;
+    border-radius: 10px;
+    transition: background-color .5s ease;
+    cursor: pointer;
+}
+.green-btn:hover {
+    background-color: #5dc05d;
+}
+
+.show-hide {
+    background-color: #ffc400;
+    border-radius: 10px;
+    padding: 5px;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+
+.remember-btn {
+    width: fit-content;
+    text-align: center;
+    cursor: pointer;
+    padding: 5px 10px;
+    background-color: #00c756;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    min-width: 100px;
+    margin: 5px 0px;
+}
+.remember-btn:hover {
+    background-color: #00ff6e;
+}
+
+.learn-text {
+    padding: 10px;
+    font-size: 20px;
+}

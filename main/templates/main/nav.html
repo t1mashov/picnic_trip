@@ -1,0 +1,28 @@
+
+<nav>
+    <div class="menu">
+        {% if a1 %}
+        <span class="nav-btn selected">Подобрать площадку для пикника</span>
+        {% else %}
+        <a class="nav-btn" href="{% url 'area' %}">Подобрать площадку для пикника</a>
+        {% endif %}
+
+        {% if a2 %}
+        <span class="nav-btn selected">Что взять на пикник</span>
+        {% else %}
+        <a class="nav-btn" href="{% url 'items' %}">Что взять на пикник</a>
+        {% endif %}
+
+        {% if a3 %}
+        <span class="nav-btn selected">История путешествий</span>
+        {% else %}
+        <a class="nav-btn" href="{% url 'history' %}">История путешествий</a>
+        {% endif %}
+    </div>
+
+    <div class="out">
+        <a class="nav-btn" href="{% url 'index' %}?out=1">Выйти</a>
+    </div>
+</nav>
+
+

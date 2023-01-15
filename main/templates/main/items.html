@@ -1,0 +1,80 @@
+
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block nav %}
+    {% include 'main/nav.html' %}
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'main/css/items.css' %}">
+{% endblock %}
+
+{% block main %}
+<script src="{% static 'main/js/items.js' %}"></script>
+<form method="post">
+    {% csrf_token %}
+    <p class="learn-text">
+        Хорошо продумайте, какие вещи будут Вам нужны на пикнике, 
+        заниесите их в список и отмечайте уже собранные
+    </p>
+    <div class="content">
+        <div class="std-list">
+            <h3>Стандартный список</h3>
+            <div class="std-list-content">
+                {% for key, val in items.items %}
+                    <div class="category-name">
+                        <div><b>{{key}}</b></div>
+                        <div class="show-hide" id="btn_{{key}}" onclick="show_hide_category('btn_{{key}}', 'container_{{key}}')">
+                            Скрыть
+                        </div>
+                    </div>
+                    <div id="container_{{key}}">
+                        {% for el in val %}
+                        <div class="std-item" data-content="{{el}}">
+                            <div class="item-name">{{el}}</div>
+                            <div class="send-to-my-list" onclick="add_element_from_std(`{% static 'main/imgs/trash.svg' %}`, '{{el}}')">&gt&gt</div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    
+                {% endfor %}
+            </div>
+        </div>
+        <div class="my-list">
+            <h3>Мой список</h3>
+            <div class="my-list-content">
+                <!-- elements  -->
+                {% for el in my_items %}
+                <div class="my-item {% if el.checked %}ready-item{% endif %}" data-content="{{el.name}}">
+                    <div class="my-item-w1">
+                        <div class="trash {% if el.checked %}ready-trash{% endif %}" onclick="del_element('{{el.name}}')">
+                            <img class="trash-img" src="{% static 'main/imgs/trash.svg' %}">
+                        </div>
+                        <div class="item-name">{{el.name}}</div>
+                    </div>
+                    <div class="my-item-w2" onclick="select('{{el.name}}')">
+                        <div class="check {% if el.checked %}ready-check{% endif %}"></div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="green-btn add-el" id="add-el-btn" onclick="add_element()">Добавить элемент</div>
+            <button class="green-btn add-el" id="save-page-btn" onfocus="on_save_btn()">Сохранить изменения</button>
+            <div class="hidden" id="add-el-container">
+                <p><input class="add-el-field" type="text" id="add-el-field"></p>
+                <div class="save">
+                    <div class="green-btn save-out" onclick="add_element_from_input(`{% static 'main/imgs/trash.svg' %}`)">Сохранить</div>
+                    <div class="green-btn save-out" onclick="cancel()">Отменить</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="res">
+
+    </div>
+</form>
+
+{% endblock %}

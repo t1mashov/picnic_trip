@@ -1,0 +1,85 @@
+
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'main/css/area.css' %}">
+{% endblock %}
+
+{% block nav %}
+    {% if reg == True %}
+        {% include 'main/nav.html' %}
+    {% endif %}
+{% endblock %}
+
+{% block main %}
+
+<script src="https://api-maps.yandex.ru/2.1/?apikey=34942c00-6f51-4f9e-997f-91c26650fdc9&lang=ru_RU"></script>
+<script src="{% static 'main/js/area.js' %}"></script>
+{{connect_db|safe}}
+{{saved_areas|safe}}
+<script>
+    ymaps.ready(init);
+</script>
+<script>
+    reg = {{reg}};
+</script>
+
+<div class="content">
+    <div class="learn-text">Укажите необходимые параметры поиска площадок для пикника</div>
+    <div class="settings-wrap">
+
+        <div class="settings">
+            <div class="inp-wrap">
+                <p>Дата похода на пикник</p>
+                <input type="date" class="inp" name="date" id="i-date">
+            </div>
+            <div class="inp-wrap">
+                <p>Время похода на пикник</p>
+                <input type="time" class="inp" name="time" id="i-time">
+            </div>
+            <script>
+                set_today()
+            </script>
+
+            <p>Отметьте, какие удобства обязательно должны быть в наличии</p>
+            <div class="inp-wrap check-wrap">
+                <button class="check-btn" id="HasDressingRoom" onclick="click_params('HasDressingRoom')">раздевалка</button>
+                <button class="check-btn" id="HasEatery" onclick="click_params('HasEatery')">точка питания</button>
+                <button class="check-btn" id="HasToilet" onclick="click_params('HasToilet')">туалет</button>
+                <button class="check-btn" id="HasWifi" onclick="click_params('HasWifi')">Wi-Fi</button>
+                <button class="check-btn" id="HasFirstAidPost" onclick="click_params('HasFirstAidPost')">медпункт</button>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="btn-wrap">
+        <div class="green-btn" onclick="apply_filter()">Применить</div>
+    </div>
+
+    <form method="post">
+        {% csrf_token %}
+        <div class="learn-text">Для построения маршрута, нажмите на название из списка площадок</div>
+        <div class="map-wrap">
+            <div class="map" id="map">
+            </div>
+    
+            <div class="areas" id="areas">
+            </div>
+        </div>
+        <div id="res">
+
+        </div>
+    </form>
+    
+
+</div>
+
+<script>
+    fill_areas()
+</script>
+
+{% endblock %}

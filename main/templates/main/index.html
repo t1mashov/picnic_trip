@@ -1,0 +1,50 @@
+
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'main/css/index.css' %}">
+{% endblock %}
+
+{% block main %}
+<div class="content">
+    <div class="left">
+        <p>
+            С помощью нашего приложения Вы сможете найти площадку,
+            подходящую Вам по всем параметрам, подготовиться к походу,
+            собрать необходимые вещи и ничего не забыть
+        </p>
+        <p>
+            Зарегистрируйтесь или войдите в аккаунт, чтобы получить полный доступ к функционалу приложения
+        </p>
+        <div class="no-reg-wrap">
+            <a href="{% url 'index' %}?guest=1"><button class="green-btn">Продолжить без регистрации</button></a>
+        </div>
+    </div>
+    <div class="right">
+        <form method="post">
+            {% csrf_token %}
+            <h3>Вход</h3>
+            <table>
+            <tr>
+                <td class="td-name">Логин:</td>
+                <td><input type="text" autocomplete="new-password" name="name"></td>
+            </tr>
+            <tr>
+                <td class="td-name">Пароль:</td>
+                <td><input type="password" autocomplete="new-password" name="password"></td>
+            </tr>
+            </table>
+            <div class="form-btn-wrap">
+                <div><button class="form-btn" type="submit" name="enter">Войти</button></div>
+                <div><button class="form-btn" type="submit" name="reg">Зарегистрироваться</button></div>
+            </div>
+            <div class="error">
+                {{ error_message }}
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
